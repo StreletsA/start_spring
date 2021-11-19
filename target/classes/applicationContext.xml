@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="authorMessage.properties"/>
+
+    <bean id="adminMessage" class="com.StreletsA.AdminMessage">
+        <constructor-arg value="This is AdminMessage"/>
+    </bean>
+
+    <bean id="systemMessage" class="com.StreletsA.SystemMessage">
+        <constructor-arg value="This is SystemMessage"/>
+    </bean>
+
+    <bean id="userMessage" class="com.StreletsA.UserMessage"
+            scope="prototype">
+        <constructor-arg index="0" value="Andrew"/>
+        <constructor-arg index="1" value="This is UserMessage"/>
+    </bean>
+
+    <bean id="messageViewer" class="com.StreletsA.MessageViewer"/>
+
+    <bean id="mainMessageViewer" class="com.StreletsA.MainMessageViewer" />
+
+    <bean id="authorMessage" class="com.StreletsA.AdminMessage">
+        <constructor-arg value="${authorMessage.mainMessage}"/>
+    </bean>
+
+    <bean id="authorMessageViewer" class="com.StreletsA.MainMessageViewer">
+        <property name="mainMessage" ref="authorMessage"/>
+    </bean>
+
+</beans>
