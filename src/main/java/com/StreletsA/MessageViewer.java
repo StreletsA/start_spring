@@ -1,30 +1,34 @@
 package com.StreletsA;
 
-import com.StreletsA.infs.IMessageViewer;
-import com.StreletsA.infs.Message;
+import com.StreletsA.infs.IMessage;
+import com.StreletsA.infs.IViewer;
+import com.StreletsA.infs.IMessage;
+import com.StreletsA.infs.IViewer;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MessageViewer implements IMessageViewer {
+@Component
+public class MessageViewer implements IViewer {
 
-    private List<Message> messages;
+    private List<IMessage> messages;
 
     public MessageViewer(){
-        messages = new ArrayList<Message>();
+        messages = new ArrayList<IMessage>();
     }
 
     @Override
     public void showContent() {
         System.out.println("******************************");
-        for (Message message: messages) {
-            System.out.println(message.getMessage());
+        for (IMessage message: messages) {
+            System.out.println(message.getContent());
         }
         System.out.println("******************************");
     }
 
     @Override
-    public void addMessage(Message message) {
+    public void addMessage(IMessage message) {
         messages.add(message);
 
         showContent();

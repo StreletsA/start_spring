@@ -2,11 +2,10 @@ package com.StreletsA.infs;
 
 import java.util.Date;
 
-public interface Message {
+public interface IMessage {
 
     String getContent();
-    String getSender();
-    String getMessage();
+    ISender getSender();
     long getDate();
 
 }

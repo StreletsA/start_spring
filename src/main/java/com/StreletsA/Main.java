@@ -1,6 +1,6 @@
 package com.StreletsA;
 
-import com.StreletsA.infs.Message;
+import com.StreletsA.infs.IMessage;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.LinkedList;
@@ -13,52 +13,13 @@ public class Main {
                 "applicationContext.xml"
         );
 
-        MessageViewer messageViewer = context.getBean(
-                "messageViewer",
-                MessageViewer.class
-        );
+        MessageViewer messageViewer = context.getBean("messageViewer", MessageViewer.class);
 
-        Message adminMessage = context.getBean(
-                "adminMessage",
-                AdminMessage.class
-        );
+        Sender userA = context.getBean("sender", Sender.class);
+        Sender userB = context.getBean("sender", Sender.class);
 
-        Message systemMessage = context.getBean(
-                "systemMessage",
-                SystemMessage.class
-        );
-
-        Message userMessage = context.getBean(
-                "userMessage",
-                UserMessage.class
-        );
-
-        UserMessage userMessage2 = context.getBean(
-                "userMessage",
-                UserMessage.class
-        );
-
-        messageViewer.addMessage(adminMessage);
-        messageViewer.addMessage(systemMessage);
-        messageViewer.addMessage(userMessage);
-
-        userMessage2.setSender("Bla-bla");
-
-        messageViewer.addMessage(userMessage2);
-
-        MainMessageViewer mainMessageViewer = context.getBean(
-                "mainMessageViewer",
-                MainMessageViewer.class
-        );
-
-        MainMessageViewer author = context.getBean(
-                "authorMessageViewer",
-                MainMessageViewer.class
-        );
-
-        author.showContent();
-
-        mainMessageViewer.showContent();
+        userA.sendMessage("Hi!");
+        userB.sendMessage("Hello!");
 
     }
 

@@ -7,7 +7,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="authorMessage.properties"/>
+    <context:component-scan base-package="com.StreletsA"/>
+
+    <!--<context:property-placeholder location="authorMessage.properties"/>
 
     <bean id="adminMessage" class="com.StreletsA.AdminMessage">
         <constructor-arg value="This is AdminMessage"/>
@@ -35,6 +37,6 @@
 
     <bean id="authorMessageViewer" class="com.StreletsA.MainMessageViewer">
         <property name="mainMessage" ref="authorMessage"/>
-    </bean>
+    </bean>-->
 
 </beans>
