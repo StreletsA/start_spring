@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Sender implements ISender {
 
-    private MessageViewer viewer;
+    private IViewer viewer;
 
     @Autowired
-    public Sender(MessageViewer viewer){
+    public Sender(IViewer viewer){
         this.viewer = viewer;
     }
 
