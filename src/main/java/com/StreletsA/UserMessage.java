@@ -16,6 +16,14 @@ public class UserMessage implements Message {
         date = (new Date()).getTime();
     }
 
+    public void initMethod(){
+        System.out.println("Initialization - " + sender);
+    }
+
+    public void destroyMethod(){
+        System.out.println("Destroy - " + sender);
+    }
+
     @Override
     public String getContent() {
         return content;

@@ -18,7 +18,9 @@
     </bean>
 
     <bean id="userMessage" class="com.StreletsA.UserMessage"
-            scope="prototype">
+            scope="prototype"
+            init-method="initMethod"
+            destroy-method="destroyMethod">
         <constructor-arg index="0" value="Andrew"/>
         <constructor-arg index="1" value="This is UserMessage"/>
     </bean>
